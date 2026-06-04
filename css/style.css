@@ -1,0 +1,31 @@
+:root {
+
+    --sidebar-bg: #1d1f24;
+
+    --primary: #4f46e5;
+
+    --success: #10b981;
+
+    --danger: #ef4444;
+
+    --light-bg: #f5f7fb;
+
+}
+
+body {
+
+    margin: 0;
+
+    background: var(--light-bg);
+
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+}
+
+#app {
+
+    min-height: 100vh;
+
+}

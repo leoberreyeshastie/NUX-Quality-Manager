@@ -113,3 +113,91 @@ body {
     padding: 25px;
 
 }
+
+.dashboard {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.kpi-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+.kpi-card {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.kpi-label {
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+.kpi-value {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+}
+
+.danger {
+
+    color: #dc2626;
+
+}
+
+.panel {
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.dashboard-row {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.two-columns {
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 20px;
+
+}

@@ -14,11 +14,11 @@ function loadView(view) {
 
         case "dashboard":
 
-            title.textContent =
-                "Dashboard";
+            title.textContent = "Dashboard";
 
-            container.innerHTML =
-                renderDashboard();
+            container.innerHTML = renderDashboard();
+
+            initDashboard();
 
             break;
 

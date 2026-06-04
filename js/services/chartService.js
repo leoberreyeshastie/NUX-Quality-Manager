@@ -28,14 +28,9 @@ function createTrendChart() {
 
                     label: "Hallazgos",
 
-                    data: [
-                        12,
-                        18,
-                        9,
-                        25,
-                        14,
-                        38
-                    ]
+                    data:
+                        MOCK_DATA.dashboard
+                            .tendenciaMensual
 
                 }
 
@@ -62,15 +57,10 @@ function createParetoChart() {
 
         data: {
 
-            labels: [
+            labels:
 
-                "Registro",
-                "Mancha",
-                "Corte",
-                "Tinta",
-                "Otros"
-
-            ],
+                MOCK_DATA.dashboard.pareto
+                    .map(x => x.defecto),
 
             datasets: [
 
@@ -78,15 +68,10 @@ function createParetoChart() {
 
                     label: "Cantidad",
 
-                    data: [
+                    data:
 
-                        25,
-                        18,
-                        12,
-                        8,
-                        4
-
-                    ]
+                        MOCK_DATA.dashboard.pareto
+                            .map(x => x.cantidad)
 
                 }
 

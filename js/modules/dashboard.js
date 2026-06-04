@@ -1,4 +1,6 @@
 function renderDashboard() {
+    const data =
+    MOCK_DATA.dashboard;
 
     return `
 
@@ -13,7 +15,7 @@ function renderDashboard() {
                     </div>
 
                     <div class="kpi-value">
-                        245
+                        ${data.kpis.ordenes}
                     </div>
 
                 </div>
@@ -25,7 +27,7 @@ function renderDashboard() {
                     </div>
 
                     <div class="kpi-value">
-                        38
+                        ${data.kpis.hallazgos}
                     </div>
 
                 </div>
@@ -37,7 +39,7 @@ function renderDashboard() {
                     </div>
 
                     <div class="kpi-value">
-                        1,250
+                        ${data.kpis.piezasNC}
                     </div>
 
                 </div>
@@ -49,7 +51,7 @@ function renderDashboard() {
                     </div>
 
                     <div class="kpi-value danger">
-                        0.87%
+                        ${data.kpis.porcentajeNC}
                     </div>
 
                 </div>

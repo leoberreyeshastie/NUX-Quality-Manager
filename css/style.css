@@ -201,3 +201,24 @@ body {
     gap: 20px;
 
 }
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+
+}

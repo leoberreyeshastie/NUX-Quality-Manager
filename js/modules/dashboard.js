@@ -1,146 +1,105 @@
 function renderDashboard() {
-    const data =
-    MOCK_DATA.dashboard;
+
+    const metrics =
+        getDashboardMetrics();
 
     return `
 
-        <div class="dashboard">
+        <div class="dashboard-grid">
 
-            <div class="kpi-grid">
+            <div class="kpi-card-modern kpi-primary">
 
-                <div class="kpi-card">
+                <h3>
 
-                    <div class="kpi-label">
-                        Órdenes Procesadas
-                    </div>
+                    ${metrics.abiertos}
 
-                    <div class="kpi-value">
-                        ${data.kpis.ordenes}
-                    </div>
+                </h3>
 
-                </div>
+                <p>
 
-                <div class="kpi-card">
+                    Expedientes Activos
 
-                    <div class="kpi-label">
-                        Hallazgos
-                    </div>
-
-                    <div class="kpi-value">
-                        ${data.kpis.hallazgos}
-                    </div>
-
-                </div>
-
-                <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Piezas NC
-                    </div>
-
-                    <div class="kpi-value">
-                        ${data.kpis.piezasNC}
-                    </div>
-
-                </div>
-
-                <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        % NC
-                    </div>
-
-                    <div class="kpi-value danger">
-                        ${data.kpis.porcentajeNC}
-                    </div>
-
-                </div>
+                </p>
 
             </div>
 
-            <div class="dashboard-row">
+            <div class="kpi-card-modern">
 
-                <div class="panel">
+                <h3>
 
-                    <h4>
-                        Tendencia Mensual
-                    </h4>
+                    ${metrics.cerrados}
 
-                    <canvas id="trendChart"></canvas>
+                </h3>
 
-                </div>
+                <p>
+
+                    Expedientes Cerrados
+
+                </p>
 
             </div>
 
-            <div class="dashboard-row two-columns">
+            <div class="kpi-card-modern">
 
-                <div class="panel">
+                <h3>
 
-                    <h4>
-                        Pareto de Defectos
-                    </h4>
+                    ${metrics.piezasProducidas}
 
-                    <canvas id="paretoChart"></canvas>
+                </h3>
 
-                </div>
+                <p>
 
-                <div class="panel">
+                    Piezas Inspeccionadas
 
-                    <h4>
-                        Últimos Hallazgos
-                    </h4>
+                </p>
 
-                    <table class="table">
+            </div>
 
-                        <thead>
+            <div class="kpi-card-modern">
 
-                            <tr>
+                <h3>
 
-                                <th>Orden</th>
-                                <th>Defecto</th>
-                                <th>Piezas</th>
+                    ${metrics.defectos}
 
-                            </tr>
+                </h3>
 
-                        </thead>
+                <p>
 
-                        <tbody>
+                    Hallazgos Detectados
 
-                            <tr>
+                </p>
 
-                                <td>OT-1258</td>
+            </div>
 
-                                <td>Error Registro</td>
+            <div class="kpi-card-modern">
 
-                                <td>120</td>
+                <h3>
 
-                            </tr>
+                    ${metrics.calidad.toFixed(2)}%
 
-                            <tr>
+                </h3>
 
-                                <td>OT-1259</td>
+                <p>
 
-                                <td>Mancha</td>
+                    Calidad General
 
-                                <td>80</td>
+                </p>
 
-                            </tr>
+            </div>
 
-                            <tr>
+            <div class="kpi-card-modern">
 
-                                <td>OT-1260</td>
+                <h3>
 
-                                <td>Corte</td>
+                    ${metrics.recuperacion.toFixed(2)}%
 
-                                <td>45</td>
+                </h3>
 
-                            </tr>
+                <p>
 
-                        </tbody>
+                    Recuperación
 
-                    </table>
-
-                </div>
+                </p>
 
             </div>
 
@@ -155,5 +114,144 @@ function initDashboard() {
     createTrendChart();
 
     createParetoChart();
+
+}
+
+function getDashboardMetrics() {
+
+    const expedientes =
+        getExpedientes()
+            .filter(
+
+                exp =>
+                    exp.estado !==
+                    "ANULADO"
+
+            );
+
+    let abiertos = 0;
+    let cerrados = 0;
+
+    let piezasProducidas = 0;
+
+    let defectos = 0;
+
+    let recuperadas = 0;
+
+    expedientes.forEach(
+
+        expediente => {
+
+            if (
+                expediente.estado ===
+                "ABIERTO"
+            ) {
+
+                abiertos++;
+
+            }
+
+            if (
+                expediente.estado ===
+                "EN_PROCESO"
+            ) {
+
+                abiertos++;
+
+            }
+
+            if (
+                expediente.estado ===
+                "CERRADO"
+            ) {
+
+                cerrados++;
+
+            }
+
+            piezasProducidas +=
+
+                expediente
+                    .cantidadProducida || 0;
+
+            expediente.hallazgos
+                .forEach(
+
+                    hallazgo => {
+
+                        defectos +=
+
+                            hallazgo
+                                .piezasDetectadas || 0;
+
+                        recuperadas +=
+
+                            hallazgo
+                                .piezasRecuperadas || 0;
+
+                    }
+
+                );
+
+        }
+
+    );
+
+    const calidad =
+
+        piezasProducidas > 0
+
+            ?
+
+            (
+
+                (
+                    piezasProducidas -
+                    defectos
+                )
+
+                /
+
+                piezasProducidas
+
+            ) * 100
+
+            :
+
+            0;
+
+    const recuperacion =
+
+        defectos > 0
+
+            ?
+
+            (
+
+                recuperadas
+                /
+                defectos
+
+            ) * 100
+
+            :
+
+            0;
+
+    return {
+
+        abiertos,
+
+        cerrados,
+
+        piezasProducidas,
+
+        defectos,
+
+        calidad,
+
+        recuperacion
+
+    };
 
 }

@@ -174,12 +174,12 @@ body {
 
     background: white;
 
-    border-radius: 14px;
+    border-radius: 24px;
 
-    padding: 20px;
+    padding: 24px;
 
     box-shadow:
-        0 4px 12px rgba(0,0,0,.08);
+        0 10px 25px rgba(0,0,0,.08);
 
 }
 
@@ -220,5 +220,402 @@ label {
     margin-bottom: 6px;
 
     font-weight: 600;
+
+}
+
+.hallazgo-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin-top: 20px;
+
+    border-left: 6px solid #0d6efd;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+
+    transition: .25s ease;
+
+}
+
+.hallazgo-card:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.expediente-row:hover {
+
+    background: #f5f5f5;
+
+}
+
+.expediente-row {
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+
+}
+
+.expediente-actions {
+
+    margin-top: 10px;
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+.evidencia-item {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+
+}
+
+.evidencia-item img {
+
+    width: 120px;
+
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+}
+
+
+/*INDICADORES*/
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px,1fr)
+        );
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+}
+
+.stat-card {
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 15px;
+
+    text-align: center;
+
+}
+
+/*ESTADOS*/
+
+.estado-abierto {
+
+    color: #0d6efd;
+
+    font-weight: bold;
+
+}
+
+.estado-proceso {
+
+    color: #fd7e14;
+
+    font-weight: bold;
+
+}
+
+.estado-cerrado {
+
+    color: #198754;
+
+    font-weight: bold;
+
+}
+
+.estado-anulado {
+
+    color: #dc3545;
+
+    font-weight: bold;
+
+}
+
+.alert-warning {
+
+    background: #fff3cd;
+
+    border: 1px solid #ffe69c;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+
+}
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                220px,
+                1fr
+            )
+        );
+
+    gap: 15px;
+
+}
+
+.kpi-card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+    text-align: center;
+
+}
+
+.kpi-card h3 {
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+
+}
+
+.timeline-item {
+
+    border-left: 3px solid #0d6efd;
+
+    margin-bottom: 15px;
+
+    padding-left: 15px;
+
+}
+
+.timeline-date {
+
+    font-size: 0.85rem;
+
+    color: #6c757d;
+
+    margin-bottom: 5px;
+
+}
+
+.timeline-content {
+
+    background: white;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.timeline-empty {
+
+    color: #6c757d;
+
+    font-style: italic;
+
+}
+
+/* =========================================
+   KPI MODERNOS NUX
+========================================= */
+
+.kpi-card-modern {
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: all .25s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.kpi-card-modern:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.kpi-card-modern::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 6px;
+
+}
+
+.kpi-primary::before {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #6610f2
+        );
+
+}
+
+.kpi-success::before {
+
+    background:
+        linear-gradient(
+            135deg,
+            #198754,
+            #20c997
+        );
+
+}
+
+.kpi-danger::before {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dc3545,
+            #ff758c
+        );
+
+}
+
+.kpi-warning::before {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ffc107
+        );
+
+}
+
+.kpi-title {
+
+    color: #6b7280;
+
+    font-size: .9rem;
+
+    margin-bottom: 10px;
+
+}
+
+.kpi-number {
+
+    font-size: 2.2rem;
+
+    font-weight: 700;
+
+}
+
+.kpi-subtitle {
+
+    color: #9ca3af;
+
+    font-size: .85rem;
+
+}
+
+.expediente-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    margin-bottom: 14px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.08);
+
+    transition: .25s ease;
+
+    cursor: pointer;
+
+}
+
+.expediente-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 30px rgba(0,0,0,.12);
 
 }

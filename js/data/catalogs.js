@@ -32,6 +32,19 @@ const CATALOGS = {
         "Contaminación",
         "Otro"
 
+    ],
+    acciones: [
+
+        "Retrabajo",
+
+        "Reproceso",
+
+        "Corrección",
+
+        "Desecho",
+
+        "Liberación Condicional"
+
     ]
 
 };

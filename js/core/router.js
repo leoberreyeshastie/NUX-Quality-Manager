@@ -22,13 +22,15 @@ function loadView(view) {
 
             break;
 
-        case "hallazgos":
+        case "expedientes":
 
             title.textContent =
-                "Hallazgos";
+                "Expedientes";
 
             container.innerHTML =
-                renderHallazgos();
+                renderExpedientes();
+            
+            initExpedientes();
 
             break;
 
@@ -49,6 +51,8 @@ function loadView(view) {
 
             container.innerHTML =
                 renderIndicadores();
+
+            initIndicadores();
 
             break;
 

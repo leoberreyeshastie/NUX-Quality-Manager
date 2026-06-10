@@ -33,8 +33,8 @@ function renderLayout() {
                         📊 Dashboard
                     </button>
 
-                    <button onclick="loadView('hallazgos')">
-                        🔍 Hallazgos
+                    <button onclick="loadView('expedientes')">
+                        🔍 Expedientes
                     </button>
 
                     <button onclick="loadView('ordenes')">
